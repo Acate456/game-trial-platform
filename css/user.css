@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+:root {
+    --bg-primary: #0a0e17;
+    --bg-secondary: #121826;
+    --bg-card: rgba(22, 28, 45, 0.8);
+    --border-color: rgba(255,255,255,0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --accent: #6366f1;
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --success: #10b981;
+    --radius: 12px;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 导航栏 */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wallet-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.balance {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 主容器 */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+/* 横幅 */
+.banner {
+    border-radius: 16px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%);
+    border: 1px solid var(--border-color);
+    margin-bottom: 48px;
+}
+
+.banner h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.banner p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.primary-btn {
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+}
+
+.primary-btn.full {
+    width: 100%;
+}
+
+.outline-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 12px 28px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.outline-btn:hover {
+    background: rgba(99,102,241,0.1);
+}
+
+/* 通用区块 */
+.section {
+    margin-bottom: 48px;
+}
+
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.section-sub {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* 游戏网格 */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+}
+
+.game-cover {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.game-info {
+    padding: 16px;
+}
+
+.game-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.game-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.game-reward {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* 任务中心 */
+.task-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.task-item:hover {
+    border-color: var(--accent);
+}
+
+.task-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.task-desc {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.task-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--success);
+}
+
+/* 发布任务区块 */
+.publish-card {
+    background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(16,185,129,0.08) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.publish-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.publish-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* 底部 */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 24px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* 弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modal-content h3 {
+    margin-bottom: 24px;
+    font-size: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+.modal-content input:focus {
+    border-color: var(--accent);
+}
+
+.form-tip {
+    text-align: center;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.form-tip a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .banner {
+        padding: 32px 20px;
+    }
+    .banner h1 {
+        font-size: 24px;
+    }
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+    .publish-card {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .task-item {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+}
