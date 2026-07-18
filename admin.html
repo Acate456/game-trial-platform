@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佑爆平台 - 管理后台</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- 登录页 -->
+    <div class="login-page" id="loginPage">
+        <div class="login-box">
+            <div class="login-logo">佑爆网络 · 管理后台</div>
+            <p class="login-sub">游戏试玩平台管理系统</p>
+            <form id="adminLoginForm">
+                <input type="text" id="adminUser" placeholder="管理员账号" required>
+                <input type="password" id="adminPass" placeholder="管理员密码" required>
+                <button type="submit" class="login-btn">登录后台</button>
+                <p class="login-tip">默认账号：admin  默认密码：admin123</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 后台主界面 -->
+    <div class="admin-layout" id="adminLayout" style="display: none;">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">佑爆后台</div>
+            <nav class="sidebar-menu">
+                <div class="menu-item active" data-menu="dashboard">
+                    <span>📊</span><span>数据概览</span>
+                </div>
+                <div class="menu-item" data-menu="games">
+                    <span>🎮</span><span>游戏管理</span>
+                </div>
+                <div class="menu-item" data-menu="tasks">
+                    <span>📋</span><span>任务管理</span>
+                </div>
+                <div class="menu-item" data-menu="users">
+                    <span>👥</span><span>用户管理</span>
+                </div>
+                <div class="menu-item" data-menu="wallet">
+                    <span>💰</span><span>钱包结算</span>
+                </div>
+                <div class="menu-item" data-menu="ai">
+                    <span>🤖</span><span>AI API配置</span>
+                </div>
+                <div class="menu-item" data-menu="email">
+                    <span>📧</span><span>邮箱配置</span>
+                </div>
+                <div class="menu-item" data-menu="settings">
+                    <span>⚙️</span><span>系统设置</span>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">退出登录</button>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h2 id="pageTitle">数据概览</h2>
+                <div class="admin-info">
+                    <span>管理员：admin</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- 数据概览 -->
+                <div class="page-panel active" id="panel-dashboard">
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">128</div>
+                            <div class="stat-label">注册用户</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">36</div>
+                            <div class="stat-label">上线游戏</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">52</div>
+                            <div class="stat-label">进行中任务</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">¥2,580.00</div>
+                            <div class="stat-label">累计发放佣金</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 游戏管理 -->
+                <div class="page-panel" id="panel-games">
+                    <div class="panel-toolbar">
+                        <button class="primary-btn" id="addGameBtn">+ 新增游戏</button>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>游戏名称</th>
+                                    <th>类型</th>
+                                    <th>试玩奖励</th>
+                                    <th>跳转链接</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gameTableBody">
+                                <!-- 数据动态渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 任务管理 -->
+                <div class="page-panel" id="panel-tasks">
+                    <div class="panel-toolbar">
+                        <button class="primary-btn">+ 新增任务</button>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>任务名称</th>
+                                    <th>类型</th>
+                                    <th>佣金</th>
+                                    <th>发布者</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 数据动态渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 用户管理 -->
+                <div class="page-panel" id="panel-users">
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>账号</th>
+                                    <th>注册时间</th>
+                                    <th>钱包余额</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 数据动态渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 钱包结算 -->
+                <div class="page-panel" id="panel-wallet">
+                    <div class="data-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>提现单号</th>
+                                    <th>用户</th>
+                                    <th>金额</th>
+                                    <th>申请时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 数据动态渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- AI API配置 -->
+                <div class="page-panel" id="panel-ai">
+                    <div class="form-card">
+                        <h3>AI 模型密钥配置</h3>
+                        <div class="form-group">
+                            <label>千问 API Key</label>
+                            <input type="text" placeholder="sk-xxxxxx" id="qwenKey">
+                        </div>
+                        <div class="form-group">
+                            <label>豆包 API Key</label>
+                            <input type="text" placeholder="ark-xxxxxx" id="doubaoKey">
+                        </div>
+                        <div class="form-group">
+                            <label>Agnes API Key</label>
+                            <input type="text" placeholder="sk-xxxxxx" id="agnesKey">
+                        </div>
+                        <div class="form-group">
+                            <label>硅基流动 API Key</label>
+                            <input type="text" placeholder="sk-xxxxxx" id="siliconKey">
+                        </div>
+                        <div class="form-group">
+                            <label>小米 MIMO API Key</label>
+                            <input type="text" placeholder="sk-xxxxxx" id="mimoKey">
+                        </div>
+                        <div class="form-actions">
+                            <button class="primary-btn" id="testAiBtn">测试连通性</button>
+                            <button class="outline-btn">保存配置</button>
+                        </div>
+                        <div class="test-result" id="aiTestResult"></div>
+                    </div>
+                </div>
+
+                <!-- 邮箱配置 -->
+                <div class="page-panel" id="panel-email">
+                    <div class="form-card">
+                        <h3>SMTP 邮箱配置</h3>
+                        <div class="form-group">
+                            <label>SMTP服务器地址</label>
+                            <input type="text" value="smtp.qq.com" id="smtpHost">
+                        </div>
+                        <div class="form-group">
+                            <label>端口</label>
+                            <input type="text" value="465" id="smtpPort">
+                        </div>
+                        <div class="form-group">
+                            <label>发件人邮箱</label>
+                            <input type="text" value="1012474587@qq.com" id="smtpUser">
+                        </div>
+                        <div class="form-group">
+                            <label>SMTP授权密码</label>
+                            <input type="password" id="smtpPass">
+                        </div>
+                        <div class="form-group">
+                            <label>发件人显示名称</label>
+                            <input type="text" value="佑爆网络" id="smtpName">
+                        </div>
+                        <div class="form-actions">
+                            <button class="primary-btn">发送测试邮件</button>
+                            <button class="outline-btn">保存配置</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统设置 -->
+                <div class="page-panel" id="panel-settings">
+                    <div class="form-card">
+                        <h3>基础设置</h3>
+                        <div class="form-group">
+                            <label>网站名称</label>
+                            <input type="text" value="佑爆游戏试玩平台">
+                        </div>
+                        <div class="form-group">
+                            <label>管理员账号</label>
+                            <input type="text" value="admin">
+                        </div>
+                        <div class="form-group">
+                            <label>修改管理员密码</label>
+                            <input type="password" placeholder="留空则不修改">
+                        </div>
+                        <button class="primary-btn">保存设置</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
