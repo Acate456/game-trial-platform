@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佑爆游戏试玩平台</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">佑爆游戏</div>
+            <nav class="nav-menu">
+                <a href="#games" class="nav-link active">游戏大厅</a>
+                <a href="#tasks" class="nav-link">任务中心</a>
+                <a href="#publish" class="nav-link">发布任务</a>
+            </nav>
+            <div class="nav-user">
+                <button class="wallet-btn">
+                    <span>钱包</span>
+                    <span class="balance">¥0.00</span>
+                </button>
+                <div class="user-avatar" id="userAvatar">
+                    <span>未登录</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-container">
+        <!-- 横幅区 -->
+        <section class="banner">
+            <div class="banner-content">
+                <h1>海量游戏试玩 · 边玩边赚收益</h1>
+                <p>官方正版试玩渠道，任务奖励实时结算，提现秒到账</p>
+                <button class="primary-btn">立即开始</button>
+            </div>
+        </section>
+
+        <!-- 游戏试玩区 -->
+        <section id="games" class="section">
+            <div class="section-header">
+                <h2>热门游戏试玩</h2>
+                <span class="section-sub">点击跳转第三方下载试玩，完成得奖励</span>
+            </div>
+            <div class="game-grid" id="gameList">
+                <!-- 游戏卡片由JS动态渲染 -->
+            </div>
+        </section>
+
+        <!-- 任务中心 -->
+        <section id="tasks" class="section">
+            <div class="section-header">
+                <h2>悬赏任务大厅</h2>
+                <span class="section-sub">拉新邀新、试玩任务，佣金一目了然</span>
+            </div>
+            <div class="task-tabs">
+                <button class="tab-btn active" data-tab="all">全部任务</button>
+                <button class="tab-btn" data-tab="new">拉新任务</button>
+                <button class="tab-btn" data-tab="trial">试玩任务</button>
+                <button class="tab-btn" data-tab="publish">我发布的</button>
+            </div>
+            <div class="task-list" id="taskList">
+                <!-- 任务卡片由JS动态渲染 -->
+            </div>
+        </section>
+
+        <!-- 发布任务入口 -->
+        <section id="publish" class="section publish-section">
+            <div class="publish-card">
+                <div>
+                    <h3>我有项目，想发布任务</h3>
+                    <p>平台百万用户资源，快速完成拉新、推广、试玩需求</p>
+                </div>
+                <button class="outline-btn" id="publishBtn">发布任务</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p>© 2025 佑爆网络科技有限公司 版权所有</p>
+    </footer>
+
+    <!-- 登录弹窗 -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h3>用户登录</h3>
+            <form id="loginForm">
+                <input type="text" placeholder="手机号/邮箱" required>
+                <input type="password" placeholder="密码" required>
+                <button type="submit" class="primary-btn full">登录</button>
+                <p class="form-tip">没有账号？<a href="#" id="goRegister">立即注册</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/user.js"></script>
+</body>
+</html>
